@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
     
 app.get('/select_run/:txt_running_no', function(req, res) {
     var running_no = req.params.txt_running_no;
-    var sql = "SELECT user_name, txt_running_no FROM users_events WHERE txt_running_no='"+ running_no + "'"
+    var sql = "SELECT user_name, txt_running_no, event_id FROM users_events WHERE txt_running_no='"+ running_no + "'"
     con.query(sql, function(err, result) {
         if (!err && res.statusCode == 200) {
             res.status(200);
